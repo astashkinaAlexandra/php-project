@@ -18,45 +18,10 @@ services:
 
   server:
     container_name: php-apache
-    build: ./server/
+    build: server
     ports:
       - 8000:80
     volumes:
       - ./server/php/src:/var/www/html/
     depends_on:
       - db
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: php-my-admin
-    restart: always
-    environment:
-      PMA_HOST: db
-    ports:
-      - 8080:80
-    depends_on:
-      - db
-
-  drawer:
-    container_name: drawer
-    image: php:7.2-apache
-    ports:
-      - 1000:80
-    volumes:
-      - ./drawer:/var/www/html/
-
-  sorter:
-    container_name: sorter
-    image: php:7.2-apache
-    ports:
-      - 2000:80
-    volumes:
-      - ./sorter:/var/www/html
-
-  consoler:
-    container_name: consoler
-    image: php:7.2-apache
-    ports:
-      - 3000:80
-    volumes:
-      - ./consoler:/var/www/html
