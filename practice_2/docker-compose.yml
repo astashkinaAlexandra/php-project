@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+
+  db:
+    image: mysql
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: MY_DATABASE
+      MYSQL_USER: MYSQL_USER
+      MYSQL_PASSWORD: MYSQL_PASSWORD
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/1.sql
+    ports:
+      - 8806:3306
+
+  server:
+    container_name: php-apache
+    build: server
+    ports:
+      - 8000:80
+    volumes:
+      - ./server:/var/www/html/
+    depends_on:
+      - db
+
+  drawer:
+    container_name: drawer
+    image: php:7.2-apache
+    ports:
+      - 1000:80
+    volumes:
+      - ./drawer:/var/www/html/
+
+  sorter:
+    container_name: sorter
+    image: php:7.2-apache
+    ports:
+      - 2000:80
+    volumes:
+      - ./sorter:/var/www/html
+
+  consoler:
+    container_name: consoler
+    image: php:7.2-apache
+    ports:
+      - 3000:80
+    volumes:
+      - ./consoler:/var/www/html

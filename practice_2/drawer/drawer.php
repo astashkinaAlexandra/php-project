@@ -1,10 +1,5 @@
-<html lang="en">
-<head>
-    <title>Drawer page</title>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-</head>
-<body>
 <?php
+
 //Определяем, была ли установлена переменная значением, отличным от null
 if (isset($_GET['num'])) {
 
@@ -76,6 +71,3 @@ if (isset($_GET['num'])) {
         echo $svg_code;
     }
 }
-?>
-</body>
-</html>
