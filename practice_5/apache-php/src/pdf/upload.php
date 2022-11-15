@@ -17,18 +17,15 @@ $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 if ($_FILES["userfile"]["size"] == 0) {
     $uploadOk = 0;
     echo "Файл пустой";
-}
-# Файл существует
+} # Файл существует
 else if (file_exists($target_file)) {
     $uploadOk = 0;
     echo "Такой файл уже существует\n";
-}
-# Ограничение размера
+} # Ограничение размера
 else if ($_FILES["userfile"]["size"] > 2000000) {
     $uploadOk = 0;
     echo "Файл слишком большой";
-}
-# Не PDF
+} # Не PDF
 else if ($fileType != "pdf") {
     $uploadOk = 0;
     echo "Только PDF файлы доступны к загрузке\n";

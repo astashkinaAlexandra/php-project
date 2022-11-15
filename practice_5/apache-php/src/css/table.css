@@ -4,33 +4,43 @@ html {
 }
 
 body {
-    background-color: black;
-    background: url("images/background.jpeg") no-repeat center center fixed;
+    background: url("/images/background.jpeg") no-repeat center center fixed;
     background-size: cover;
-    color: white;
+}
+
+#header {
+    padding: 20px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    border-radius: 10px;
 }
 
 #wblock {
-    background-color: black;
     padding: 20px;
     max-width: 600px;
     border-radius: 10px;
 }
 
 th {
-    border: 1px solid white;
+    border: 1px solid red;
     padding: 10px
 }
 
 td {
-    border: 1px solid white;
     border-top: none;
     padding: 10px
 }
 
 a {
-    color: white;
     text-decoration: none;
-    border: 1px solid white;
     border-radius: 100px;
 }
+
+.filelink {
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+

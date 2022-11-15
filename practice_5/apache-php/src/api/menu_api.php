@@ -1,5 +1,5 @@
 <?php require_once '../_helper.php';
-
+// Mode
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
         addItem();
@@ -11,7 +11,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         updateItemCostByName();
         break;
     case 'GET':
-        getItemByName();
+        getItemByID();
         break;
     default:
         outputStatus(2, 'Invalid Mode');
@@ -76,12 +76,12 @@ function updateItemCostByName()
     }
 }
 
-function getItemByName()
+function getItemByID()
 {
     $mysqli = openMysqli();
-    if (isset($_GET['name'])) {
-        $dishName = $_GET['name'];
-        $query = "SELECT * FROM dishes WHERE title = '{$dishName}';";
+    if (isset($_GET['id'])) {
+        $dishID = $_GET['id'];
+        $query = "SELECT * FROM dishes WHERE ID = '{$dishID}';";
         $result = $mysqli->query($query);
         if ($result->num_rows === 1) {
             foreach ($result as $dish) {
@@ -89,7 +89,7 @@ function getItemByName()
             }
             $mysqli->close();
         } else {
-            $message = $dishName . ' does not exist';
+            $message = $dishID . ' does not exist';
             outputStatus(1, $message);
         }
     } else {
@@ -100,5 +100,3 @@ function getItemByName()
         $mysqli->close();
     }
 }
-
-?>

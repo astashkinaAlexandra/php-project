@@ -1,9 +1,12 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/session/html_header.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Админ панель</title>
-    <link rel="stylesheet" href="css/table.css" type="text/css"/>
 </head>
 <body>
 <div id="wblock">
@@ -29,7 +32,7 @@
             ";
         }; ?>
     </table>
-    <br><a href="index.html">На главную</a>
+    <br><a href="index.php">На главную</a>
     <div>
         <?php $mysqli->close(); ?>
 </body>

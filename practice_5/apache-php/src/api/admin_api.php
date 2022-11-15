@@ -1,5 +1,5 @@
 <?php require_once '../_helper.php';
-
+// Mode
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
         addUser();
@@ -80,9 +80,9 @@ function updateUserPassword()
 function getUserByID()
 {
     $mysqli = openMysqli();
-    if (isset($_GET['id'])){
+    if (isset($_GET['id'])) {
         $usrID = $_GET['id'];
-        $query ="SELECT * FROM users WHERE ID = '{$usrID}';";
+        $query = "SELECT * FROM users WHERE ID = '{$usrID}';";
         $result = $mysqli->query($query);
         if ($result->num_rows === 1) {
             foreach ($result as $info) {
@@ -94,7 +94,7 @@ function getUserByID()
             outputStatus(1, $message);
         }
     } else {
-        $result =$mysqli->query("SELECT * FROM users;");
+        $result = $mysqli->query("SELECT * FROM users;");
         foreach ($result as $info) {
             echo "{status: 0, name: '" . $info['name'] . "}";
         }

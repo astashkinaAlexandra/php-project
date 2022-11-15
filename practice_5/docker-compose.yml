@@ -10,6 +10,7 @@ services:
       - ./apache-php/src:/var/www/html-dynamic
       - ./apache-php/ports.conf:/etc/apache2/ports.conf
       - ./apache-php/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./apache-php/php.ini:/usr/local/etc/php.ini
   nginx:
     container_name: nginx
     build: nginx
@@ -31,3 +32,9 @@ services:
       - './db:/docker-entrypoint-initdb.d'
     ports:
       - "3307:3307"
+  redis:
+    container_name: redis
+    image: redis:alpine3.16
+    restart: always
+    ports:
+      - "6379:6379"

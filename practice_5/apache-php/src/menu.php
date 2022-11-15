@@ -1,8 +1,11 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/session/html_header.php';
+?>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Меню</title>
-    <link rel="stylesheet" href="css/table.css" type="text/css" />
 </head>
 <body>
 <div id="wblock">
@@ -29,7 +32,7 @@
         }
         else echo ''; ?>
     </table>
-    <br><a href="index.html">На главную</a>
+    <br><a href="index.php">На главную</a>
 </div>
 <?php $mysqli->close(); ?>
 </body>

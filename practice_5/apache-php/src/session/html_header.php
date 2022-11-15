@@ -16,10 +16,9 @@ echo ' </style>';
 # Theme
 echo '<style> ';
 # True = Dark
-if (isset($_SESSION['theme']) && $_SESSION['theme']){
+if (isset($_SESSION['theme']) && $_SESSION['theme']) {
     require $_SERVER['DOCUMENT_ROOT'] . '/css/dark.css';
-}
-else {
+} else {
     require $_SERVER['DOCUMENT_ROOT'] . '/css/light.css';
 }
 echo ' </style>';
